@@ -41,9 +41,9 @@ float random_float(float a, float b) {
 
 int random_int(int a, int b) {
 	float random = ((float)rand()) / (float)RAND_MAX;
-	float diff = b - a;
+	float diff = (float)b - (float)a;
 	float r = random * diff;
-	return (int)(a + r);
+	return a + (int)r;
 }
 
 
@@ -90,7 +90,7 @@ int main(int argc, char* argv[]) {
 	SDL_SetWindowGrab(window, SDL_bool(true));
 	SDL_ShowCursor(false);
 
-	srand(time(0));
+	srand((int)time(0));
 
 	int from_color[3] = { 0, 0, 0 };
 	int to_color[3] = { random_int(0, 255), random_int(0, 255), random_int(0, 255) };
